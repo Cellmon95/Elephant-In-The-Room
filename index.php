@@ -14,6 +14,7 @@
 
 <body>
 
+    <a href="./pages/room1.php">start</a>
 </body>
 
 </html>

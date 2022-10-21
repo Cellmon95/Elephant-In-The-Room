@@ -9,10 +9,12 @@
 </head>
 
 <body>
-    <form action="/action_page.php">
-        <label for="fname">First name:</label>
-        <input type="text" id="fname" name="fname"><br><br>
-
+    <form action="elephant_ant_confirm.php" method="post">
+        <label for="ants">Ants:</label>
+        <input type="text" id="ants" name="ants">
+        <label for="elephants">elephants:</label>
+        <input type="text" id="elephants" name="elephants">
+        <input type="submit" value="Submit">
     </form>
 </body>
 
