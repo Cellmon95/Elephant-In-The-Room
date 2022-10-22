@@ -3,6 +3,8 @@
 
 <?php
 
+//$TRUE_DIR = str_replace("\\", "/", __DIR__);
+
 ?>
 
 <head>
@@ -13,8 +15,7 @@
 </head>
 
 <body>
-
-    <a href="./pages/room1.php">start</a>
+    <a href="./rooms/room1.php">start</a>
 </body>
 
 </html>

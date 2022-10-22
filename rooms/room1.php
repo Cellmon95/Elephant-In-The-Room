@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="elephant_ant_confirm.php" method="post">
+    <form action="room1_end.php" method="post">
         <label for="ants">Ants:</label>
         <input type="text" id="ants" name="ants">
         <label for="elephants">elephants:</label>
