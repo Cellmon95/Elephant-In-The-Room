@@ -16,11 +16,13 @@ require_once '../php/constants.php';
         }
     </style>
     <title><?= TITLE ?></title>
+    <script type="text/javascript" src="../js/room2-drop.js"></script>
+    <script type="text/javascript" src="../js/room2-player.js"></script>
+    <script type="text/javascript" src="../js/room2-events.js"></script>
 </head>
 
 <body>
     <canvas id="gameScreen" width="640" height="480"></canvas>
-    <script type="text/javascript" src="../js/player.js"></script>
     <script type="text/javascript" src="../js/room2-game.js"></script>
 </body>
 
