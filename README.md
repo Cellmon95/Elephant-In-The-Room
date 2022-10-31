@@ -1,5 +1,3 @@
-INSERT MANDATORY GIF
-
 # Elephant In The Room
 
 The Elephant in the room is a small story about a life.

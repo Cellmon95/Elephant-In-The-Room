@@ -2,7 +2,7 @@
 require_once('../php/functions.php');
 require_once('../php/constants.php');
 
-const SUCCESS = "It was easy. The Elephant said. I walk throug the door.";
+const SUCCESS = "It was easy. I walk through the door.";
 const FAILURE = "It's wrong. Try again.";
 
 $succeded = null;

@@ -15,7 +15,7 @@ var key = {
 
 window.requestAnimationFrame(loop);
 const dropInterval = window.setInterval(generateDrops, 1000);
-const finishGameInterval = window.setInterval(finishGame, 5000);
+const finishGameInterval = window.setInterval(finishGame, 15000);
 
 function finishGame() {
   gameFinished = true;
