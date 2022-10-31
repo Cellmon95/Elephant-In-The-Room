@@ -1,14 +1,19 @@
+<?php
+require_once('../php/constants.php');
+require_once('../php/functions.php');
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Elephant In The Room</title>
+    <?php require_once('../head.php') ?>
 </head>
 
 <body>
+    <p>Make so that the ants are more than elephants.</p>
     <form action="room1_end.php" method="post">
         <label for="ants">Ants:</label>
         <input type="text" id="ants" name="ants">

@@ -1,5 +1,6 @@
 <?php
-require_once '../php/functions.php';
+require_once('../php/functions.php');
+require_once('../php/constants.php');
 
 const SUCCESS = "It was easy. The Elephant said. I walk throug the door.";
 const FAILURE = "It's wrong. Try again.";
@@ -18,10 +19,7 @@ $succeded = isAntsMoreThanElephants($ants, $elephants);
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <?php require_once('../head.php'); ?>
 </head>
 
 <body>

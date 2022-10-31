@@ -1,4 +1,6 @@
 <?php
+require_once('../php/functions.php');
+require_once('../php/constants.php');
 
 $map = [
     ['G', 'M', 'M', 'M', 'G', 'G', 'G', 'G'],
@@ -19,18 +21,18 @@ define('TILE_VALUES', ['G' => '../images/grass.png', 'M' => '../images/mountains
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <?php require_once('../head.php'); ?>
+    <style>
+        .garden {
+            font-size: 0px;
+        }
+    </style>
 </head>
 
-
 <body>
-    <div>
+    <div class="garden">
         <?php
         foreach ($map as $y => $coloumn) {
             foreach ($coloumn as $x => $tile) {
@@ -44,15 +46,10 @@ define('TILE_VALUES', ['G' => '../images/grass.png', 'M' => '../images/mountains
             echo '<br>';
         };
         ?>
-
     </div>
 
-    <div>
-        <button>North</button>
-        <button>East</button>
-        <button>South</button>
-        <button>West</button>
-    </div>
+    <p>The Elephant watched over the garden. Peacfully.</p>
+    <a href="./room3_end.php">continue</a>
 </body>
 
 </html>
