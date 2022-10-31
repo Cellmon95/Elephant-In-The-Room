@@ -13,11 +13,11 @@ require_once('../php/functions.php');
 </head>
 
 <body>
-    <p>Make so that the ants are more than elephants.</p>
+    <p>Make it so that the ants are more than elephants.</p>
     <form action="room1_end.php" method="post">
         <label for="ants">Ants:</label>
         <input type="text" id="ants" name="ants">
-        <label for="elephants">elephants:</label>
+        <label for="elephants">Elephants:</label>
         <input type="text" id="elephants" name="elephants">
         <input type="submit" value="Submit">
     </form>

@@ -12,6 +12,10 @@ require_once '../php/constants.php';
         #gameScreen {
             border: solid;
         }
+
+        #resetLink {
+            display: hidden;
+        }
     </style>
     <script type="text/javascript" src="../js/room2-drop.js"></script>
     <script type="text/javascript" src="../js/room2-player.js"></script>
@@ -19,7 +23,7 @@ require_once '../php/constants.php';
 </head>
 
 <body>
-    <p>Catch water for the elephant.</p>
+    <p id="textPromp">Catch water for the elephant.</p>
     <canvas id="gameScreen" width="640" height="480"></canvas>
     <script type="text/javascript" src="../js/room2-game.js"></script>
 </body>

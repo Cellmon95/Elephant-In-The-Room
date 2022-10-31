@@ -28,7 +28,7 @@ $succeded = isAntsMoreThanElephants($ants, $elephants);
         <a href="../index.php">continue</a>
     <?php else : ?>
         <p><?= FAILURE ?></p>
-        <a href="room1.php">do it again</a>
+        <a href="room1.php">Do it again</a>
     <?php endif; ?>
 </body>
 

@@ -1,9 +1,10 @@
-var gameScreen = document.getElementById('gameScreen').getContext('2d');
+var context = document.getElementById('gameScreen').getContext('2d');
 var canvas = document.getElementById('gameScreen');
 
 var drops = [];
 var score = 0;
 var running = true;
+var gameFinished = false;
 
 var key = {
   upp: false,
@@ -13,19 +14,39 @@ var key = {
 };
 
 window.requestAnimationFrame(loop);
-window.setInterval(generateDrops, 1000);
+const dropInterval = window.setInterval(generateDrops, 1000);
+const finishGameInterval = window.setInterval(finishGame, 5000);
+
+function finishGame() {
+  gameFinished = true;
+  generateDrops();
+}
 
 function start() {
-  gameScreen.font = '30px Arial';
+  context.font = '30px Arial';
 }
 
 function loop() {
-  gameScreen.clearRect(0, 0, canvas.width, canvas.height);
+  context.clearRect(0, 0, canvas.width, canvas.height);
   update();
   draw();
   reset();
+  console.log('Test');
   if (running) {
     window.requestAnimationFrame(loop);
+  } else {
+    handleGameOver();
+  }
+}
+
+function handleGameOver() {
+  if (gameFinished) {
+    var textPromp = document.getElementById('textPromp');
+    textPromp.innerHTML =
+      'In the end it was impossible. <a id="resetLink" href="./room2_end.php">Continue</a>';
+  } else {
+    var textPromp = document.getElementById('textPromp');
+    textPromp.innerHTML = 'Try again. <a id="resetLink" href="">Reset</a>';
   }
 }
 
@@ -51,30 +72,55 @@ function update() {
 
 function draw() {
   drawObject(player);
+
   drops.forEach((_drop) => {
-    _drop.draw(gameScreen);
+    _drop.draw(context);
   });
-  gameScreen.fillStyle = 'black';
-  gameScreen.fillText('Score:' + score, 10, 50);
+
+  context.fillStyle = 'black';
+  context.fillText('Score:' + score, 10, 50);
+
   if (!running) {
-    gameScreen.fillText('Game Over', canvas.width / 2 - 80, canvas.height / 2);
+    context.fillText('Game Over', canvas.width / 2 - 80, canvas.height / 2);
   }
-  gameScreen.stroke();
+
+  context.stroke();
 }
 
 function generateDrops() {
   var posX = Math.floor(Math.random() * 600);
   drops.push(new drop(posX, -30));
+
+  if (gameFinished) {
+    for (let i = 0; i <= 50; i++) {
+      drops.push(new drop(i * 38, -30));
+      clearInterval(dropInterval);
+    }
+  }
 }
 
 function drawObject(object) {
-  gameScreen.fillStyle = object.color;
-  gameScreen.fillRect(
+  context.fillStyle = object.color;
+  context.fillRect(
     object.position.x,
     object.position.y,
     object.size.width,
     object.size.height
   );
+}
+
+function handleCollision() {
+  for (let i = 0; i < drops.length; i++) {
+    if (drops[i].position.y > canvas.height) {
+      running = false;
+    }
+
+    if (colliding(drops[i], player)) {
+      drops.splice(i, 1);
+      i--;
+      score++;
+    }
+  }
 }
 
 function colliding(target, other) {

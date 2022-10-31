@@ -2,7 +2,7 @@ INSERT MANDATORY GIF
 
 # Elephant In The Room
 
-Text about the project and why it exists. This would also be a great place to link the project on One.com.
+The Elephant in the room is a small story about life.
 
 # Installation
 
