@@ -20,9 +20,7 @@ function start() {
 }
 
 function loop() {
-  canva = document.getElementById('gameScreen');
-  contex = canvas.getContext('2d');
-  contex.clearRect(0, 0, canva.width, canva.height);
+  gameScreen.clearRect(0, 0, canvas.width, canvas.height);
   update();
   draw();
   reset();

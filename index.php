@@ -18,7 +18,7 @@ require_once './php/constants.php';
 <body>
     <a href="./rooms/room1.php">room1</a>
     <a href="./rooms/room2.php">room2</a>
-    <a href="./rooms/room1.php">room3</a>
+    <a href="./rooms/room3.php">room3</a>
 </body>
 
 </html>
