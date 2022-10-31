@@ -1,14 +1,15 @@
 # Elephant In The Room
 
 The Elephant in the room is a small story about a life.
+https://elephant-in-the-room.avidus.se/
 
 # Installation
 
-## The hard way
+## The Hard Way
 
 Get a virtual server and run it from there.
 
-## The easy way
+## The Easy Way
 
 Have a web browser and click on the link.
 
