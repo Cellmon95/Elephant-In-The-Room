@@ -48,7 +48,7 @@ define('TILE_VALUES', ['G' => '../images/grass.png', 'M' => '../images/mountains
         ?>
     </div>
 
-    <p>The Elephant watched over the garden. Peacfully.</p>
+    <p>The Elephant watched over the garden. Peacefully.</p>
     <a href="./room3_end.php">continue</a>
 </body>
 

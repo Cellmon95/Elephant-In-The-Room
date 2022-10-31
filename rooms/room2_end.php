@@ -8,7 +8,7 @@ require_once '../php/constants.php';
 </head>
 
 <body>
-    <p>Depressed i walk through the door.</p>
+    <p>Depressed I walk through the door.</p>
     <a href="../index.php">Walk through</a>
 </body>
 
