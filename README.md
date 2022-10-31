@@ -6,7 +6,13 @@ The Elephant in the room is a small story about life.
 
 # Installation
 
-Add the installation instructions.
+## The hard way
+
+Get a virtual server and run it from there.
+
+## The easy way
+
+Have a web browser and click on the link.
 
 # Code Review
 
