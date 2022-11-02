@@ -8,15 +8,7 @@ require_once '../php/constants.php';
 
 <head>
     <?php require_once('../head.php') ?>
-    <style>
-        #gameScreen {
-            border: solid;
-        }
-
-        #resetLink {
-            display: hidden;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/room2-style.css">
     <script type="text/javascript" src="../js/room2-drop.js"></script>
     <script type="text/javascript" src="../js/room2-player.js"></script>
     <script type="text/javascript" src="../js/room2-events.js"></script>

@@ -24,11 +24,7 @@ define('TILE_VALUES', ['G' => '../images/grass.png', 'M' => '../images/mountains
 
 <head>
     <?php require_once('../head.php'); ?>
-    <style>
-        .garden {
-            font-size: 0px;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/room3-style.css">
 </head>
 
 <body>

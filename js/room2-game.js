@@ -1,12 +1,14 @@
-var context = document.getElementById('gameScreen').getContext('2d');
-var canvas = document.getElementById('gameScreen');
+//get the canvas and its context so you can draw graphics
+const context = document.getElementById('gameScreen').getContext('2d');
+const canvas = document.getElementById('gameScreen');
 
-var drops = [];
-var score = 0;
-var running = true;
-var gameFinished = false;
+const drops = [];
+let score = 0;
+let running = true;
+let gameFinished = false;
 
-var key = {
+//the key is down or not
+const key = {
   upp: false,
   left: false,
   down: false,
@@ -17,6 +19,7 @@ window.requestAnimationFrame(loop);
 const dropInterval = window.setInterval(generateDrops, 1000);
 const finishGameInterval = window.setInterval(finishGame, 15000);
 
+//finish the game
 function finishGame() {
   gameFinished = true;
   generateDrops();
@@ -26,12 +29,18 @@ function start() {
   context.font = '30px Arial';
 }
 
+//the gameloop that runs the game.
 function loop() {
+  //clear the screen so we can redraw.
   context.clearRect(0, 0, canvas.width, canvas.height);
+
   update();
   draw();
-  reset();
-  console.log('Test');
+  checkIfGameIsStillRunning();
+}
+
+//if the game is still running continue the loop else not.
+function checkIfGameIsStillRunning() {
   if (running) {
     window.requestAnimationFrame(loop);
   } else {
@@ -39,6 +48,7 @@ function loop() {
   }
 }
 
+//handles all that happens when the game is over.
 function handleGameOver() {
   if (gameFinished) {
     var textPromp = document.getElementById('textPromp');
@@ -50,18 +60,23 @@ function handleGameOver() {
   }
 }
 
-function reset() {}
-
+//handles all the logic in the game
 function update() {
   player.update();
+
   drops.forEach((_drop) => {
     _drop.update();
   });
+  handleDropLogic();
+}
 
+function handleDropLogic() {
   for (let i = 0; i < drops.length; i++) {
+    //check if the drop have hit the grund and if it does then game stops.
     if (drops[i].position.y > canvas.height) {
       running = false;
     }
+    //if the drop hits the player than score increases.
     if (colliding(drops[i], player)) {
       drops.splice(i, 1);
       i--;
@@ -69,46 +84,50 @@ function update() {
     }
   }
 }
-
+//handles the graphics of the game
 function draw() {
-  drawObject(player);
+  player.draw();
 
   drops.forEach((_drop) => {
     _drop.draw(context);
   });
 
-  context.fillStyle = 'black';
-  context.fillText('Score:' + score, 10, 50);
+  drawScoreText();
 
   if (!running) {
-    context.fillText('Game Over', canvas.width / 2 - 80, canvas.height / 2);
+    printGameOver();
   }
 
   context.stroke();
 }
 
+//draws the text for the score
+function drawScoreText() {
+  context.fillStyle = 'black';
+  context.fillText('Score:' + score, 10, 50);
+}
+
+const printGameOver = () =>
+  context.fillText('Game Over', canvas.width / 2 - 80, canvas.height / 2);
+
 function generateDrops() {
-  var posX = Math.floor(Math.random() * 600);
+  var posX = Math.floor(Math.random() * canvas.width);
   drops.push(new drop(posX, -30));
 
   if (gameFinished) {
-    for (let i = 0; i <= 50; i++) {
-      drops.push(new drop(i * 38, -30));
-      clearInterval(dropInterval);
-    }
+    pourRain();
   }
 }
 
-function drawObject(object) {
-  context.fillStyle = object.color;
-  context.fillRect(
-    object.position.x,
-    object.position.y,
-    object.size.width,
-    object.size.height
-  );
+//when the game is finished there is a big fall of drops that the player can't catch.
+function pourRain() {
+  for (let i = 0; i <= 50; i++) {
+    drops.push(new drop(i * 38, -30));
+    clearInterval(dropInterval);
+  }
 }
 
+//checks if there have been a collision between the player and the drops.
 function handleCollision() {
   for (let i = 0; i < drops.length; i++) {
     if (drops[i].position.y > canvas.height) {
@@ -123,6 +142,7 @@ function handleCollision() {
   }
 }
 
+//returns true or false depending if there been a colison between target and other
 function colliding(target, other) {
   if (
     target.position.x < other.position.x + other.size.width &&

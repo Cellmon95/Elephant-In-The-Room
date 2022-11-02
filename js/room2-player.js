@@ -8,8 +8,19 @@ var player = {
   update: function () {
     movePlayer();
   },
+  //draws the player
+  draw: function () {
+    context.fillStyle = this.color;
+    context.fillRect(
+      this.position.x,
+      this.position.y,
+      this.size.width,
+      this.size.height
+    );
+  },
 };
 
+//handles the movement of the player
 function movePlayer() {
   if (key.right) {
     player.position.x += 10;

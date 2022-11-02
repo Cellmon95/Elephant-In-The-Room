@@ -6,10 +6,12 @@ function drop(posX = 0, posY = 0) {
   this.color = 'blue';
 }
 
+//updates drops
 drop.prototype.update = function () {
   fall(this);
 };
 
+//draws the drop
 drop.prototype.draw = function (context) {
   context.fillStyle = this.color;
   context.fillRect(
@@ -20,6 +22,7 @@ drop.prototype.draw = function (context) {
   );
 };
 
+//make the drop fall down.
 function fall(object) {
   object.position.y += FALL_SPEED;
 }
